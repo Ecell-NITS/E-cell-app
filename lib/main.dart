@@ -1,5 +1,6 @@
-import 'package:ecell_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'pages/pages.dart';
+
 
 void main() {
   runApp(const ECellApp());
