@@ -1,2 +1,3 @@
 //export
-export 'package:ecell_app/configs/configurations/extensions/constants.dart';
+export 'configurations/extensions/constants.dart';
+export 'configurations/theme/utils/palette.dart';
