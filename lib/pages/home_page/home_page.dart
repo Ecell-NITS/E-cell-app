@@ -1,3 +1,4 @@
+import 'package:ecell_app/utils/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ecell_app/configs/configs.dart';
 
@@ -14,13 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: const Drawer(),
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: appColor,
-        leading: Image.network(logoImgSrc),
-      ),
-    );
+    return Scaffold(appBar: CustomAppBar());
   }
 }
