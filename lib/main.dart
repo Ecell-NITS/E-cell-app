@@ -13,6 +13,7 @@ class ECellApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "E-Cell App",
+      debugShowCheckedModeBanner: false,
       home: const HomePage(),
       routes: {
         HomePage.routeName: (context) => const HomePage(),
