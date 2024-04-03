@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       endDrawer: const Drawer(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: appColor,
+        backgroundColor: ecellBlue,
         leading: Image.network(logoImgSrc),
       ),
     );
