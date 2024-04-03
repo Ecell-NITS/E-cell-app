@@ -7,7 +7,7 @@ SnackBar _errorSnackBar(String message, BuildContext context) {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: appColor,
+            color: ecellBlue,
             borderRadius: BorderRadius.circular(10.0),
           ),
           width: MediaQuery.of(context).size.width,
