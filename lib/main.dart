@@ -23,8 +23,8 @@ class ECellApp extends StatelessWidget {
         SplashScreen.routeName: (context) => const SplashScreen(),
         CollabPage.routeName: (context) => const CollabPage(),
       },
-      // initialRoute: SplashScreen.routeName,
-      initialRoute: CollabPage.routeName,
+      initialRoute: SplashScreen.routeName,
+      // initialRoute: CollabPage.routeName,
     );
   }
 }
