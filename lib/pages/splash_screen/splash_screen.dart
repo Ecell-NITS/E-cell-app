@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ecell_app/configs/configs.dart';
+import 'package:ecell_app/configs/configurations/assets/asset.dart';
 import 'package:ecell_app/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -31,10 +32,10 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(logoImgSrc),
+            Image.asset(ecellLogo),
             CustomSpacers.height10,
             const CircularProgressIndicator(
-              color: appColor,
+              color: ecellBlue,
             )
           ],
         ),
