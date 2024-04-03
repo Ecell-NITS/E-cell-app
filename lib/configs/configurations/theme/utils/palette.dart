@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
 
 //color
-const Color appColor = Color.fromRGBO(62, 97, 142, 1);
+const Color ecellBlue = Color(0xFF0E3669);
+const Color dark = Colors.black;
