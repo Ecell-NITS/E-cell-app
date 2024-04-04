@@ -33,7 +33,12 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 28,
                         fontWeight: FontWeight.w700),
                   ),
-                  CustomSpacers.height10
+                  CustomSpacers.height10,
+                  Text(
+                    "Please log in to continue",
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                  CustomSpacers.height20,
                 ],
               ),
             ),
