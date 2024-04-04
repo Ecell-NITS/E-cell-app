@@ -12,10 +12,10 @@ class ScreenUtil {
   late bool allowFontScaling = false;
   late Orientation _orientation = Orientation.portrait;
 
-  late double _pixelRatio = 0.0;
+  late double _pixelRatio = 1.0;
   late double _textScaleFactor = 1.0;
-  late double _screenWidth = 0.0;
-  late double _screenHeight = 0.0;
+  late double _screenWidth = 360;
+  late double _screenHeight = 690;
   late double _statusBarHeight = 0.0;
   late double _bottomBarHeight = 0.0;
 
