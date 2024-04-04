@@ -1,4 +1,5 @@
 import 'package:ecell_app/configs/configs.dart';
+import 'package:ecell_app/utils/validator.dart';
 import 'package:ecell_app/utils/widgets/custom_background/custom_background.dart';
 import 'package:ecell_app/utils/widgets/custom_text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               CustomSpacers.height20,
               CustomTextField(
+                validator: Validator.isEmailValid,
                 hintText: 'EMAIL',
                 prefixIcon: const Icon(
                   Icons.mail_outline,
@@ -48,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               CustomSpacers.height16,
               CustomTextField(
+                  validator: Validator.isPasswordValid,
                   hintText: 'password',
                   prefixIcon: const Icon(
                     Icons.lock_outline,
