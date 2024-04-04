@@ -7,21 +7,8 @@ class CustomBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //abstract circles portion to be reused in other pages
     return Stack(
       children: [
-        Positioned(
-          top: -40,
-          left: 197,
-          child: Container(
-            width: 116,
-            height: 116,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: lightBlue,
-            ),
-          ),
-        ),
         Positioned(
           top: -40,
           left: 242,
@@ -31,6 +18,18 @@ class CustomBackground extends StatelessWidget {
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: ecellBlue,
+            ),
+          ),
+        ),
+        Positioned(
+          top: -40,
+          left: 197,
+          child: Container(
+            width: 116,
+            height: 116,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: lightBlue,
             ),
           ),
         ),
