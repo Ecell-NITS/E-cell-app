@@ -8,6 +8,7 @@ class CustomTextField extends StatefulWidget {
   TextInputType? textInputType;
   String hintText;
   Widget? prefixIcon;
+  Widget? suffixIcon;
 
   CustomTextField(
       {super.key,
@@ -16,7 +17,8 @@ class CustomTextField extends StatefulWidget {
       this.obscureText = false,
       this.textInputType,
       required this.hintText,
-      this.prefixIcon});
+      this.prefixIcon,
+      this.suffixIcon});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -34,7 +36,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
           hintText: widget.hintText,
           hintStyle: const TextStyle(color: Colors.white),
           prefixIcon: widget.prefixIcon,
-          fillColor: fieldColor),
+          suffixIcon: widget.suffixIcon,
+          fillColor: fieldColor,
+          filled: true),
     );
   }
 }
