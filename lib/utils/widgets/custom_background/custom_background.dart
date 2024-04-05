@@ -33,6 +33,7 @@ class CustomBackground extends StatelessWidget {
             ),
           ),
         ),
+        bodyWidget,
         Positioned(
           top: 672,
           left: -94,
@@ -57,7 +58,6 @@ class CustomBackground extends StatelessWidget {
             ),
           ),
         ),
-        bodyWidget,
       ],
     );
   }
