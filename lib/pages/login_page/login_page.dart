@@ -1,7 +1,9 @@
 import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/utils/validator.dart';
 import 'package:ecell_app/utils/widgets/custom_background/custom_background.dart';
+import 'package:ecell_app/utils/widgets/custom_button/custom_button.dart';
 import 'package:ecell_app/utils/widgets/custom_text_field/custom_text_field.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,6 +17,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +69,31 @@ class _LoginPageState extends State<LoginPage> {
                     icon: obscureText
                         ? const Icon(Icons.visibility)
                         : const Icon(Icons.visibility_off),
-                  ))
+                  )),
+              SizedBox(
+                width: ScreenUtil.defaultSize.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Forgot Password',
+                          style: TextStyle(color: lightBlue),
+                        ))
+                  ],
+                ),
+              ),
+              CustomSpacers.height10,
+              SizedBox(
+                width: ScreenUtil.defaultSize.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CustomButton(onPressed: () {}, text: 'LOGIN'),
+                  ],
+                ),
+              )
             ],
           ),
         ),
