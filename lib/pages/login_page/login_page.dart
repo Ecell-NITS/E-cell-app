@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                   CustomTextField(
                       validator: Validator.isPasswordValid,
                       controller: passController,
-                      hintText: 'password',
+                      hintText: 'PASSWORD',
                       prefixIcon: const Icon(
                         Icons.lock_outline,
                         color: Colors.white,

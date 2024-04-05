@@ -34,7 +34,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
       keyboardType: widget.textInputType,
       decoration: InputDecoration(
           hintText: widget.hintText,
-          hintStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(
+              color: Colors.white, fontSize: 10, fontWeight: FontWeight.w400),
           prefixIcon: widget.prefixIcon,
           suffixIcon: widget.suffixIcon,
           fillColor: fieldColor,
