@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Stack(
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 35.0),
                   child: Moto(),
                 ),
