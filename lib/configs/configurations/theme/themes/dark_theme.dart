@@ -7,4 +7,5 @@ ThemeData darkTheme = ThemeData(
     primary: dark,
     secondary: ecellBlue,
   ),
+  fontFamily: "Poppins",
 );
