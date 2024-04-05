@@ -1,12 +1,30 @@
+import 'dart:async';
+
 import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/configs/configurations/assets/asset.dart';
+import 'package:ecell_app/pages/home_page/utils/icon_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Moto extends StatelessWidget {
-  const Moto({super.key});
+  Moto({super.key});
+
+  // late Timer? _timer;
+
+  // void triggerNext(BuildContext context) {
+  //   _timer = Timer.periodic(const Duration(seconds: 4), (timer) {
+  //     Provider.of<IconProvider>(context, listen: false).nextIcon();
+  //   });
+  // }
+
+  // @override
+  // void dispose() {
+  //   _timer.cancel();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // triggerNext(context);
     return Stack(
       children: [
         Column(
@@ -31,10 +49,21 @@ class Moto extends StatelessWidget {
                 padding: const EdgeInsets.all(22.0),
                 child: Column(
                   children: [
-                    Image.asset(
-                      ecellLogo,
-                      width: ScreenUtil.defaultSize.width * 0.3,
+                    Consumer<IconProvider>(
+                      builder: (context, iconProvider, _) {
+                        return AnimatedSwitcher(
+                          duration: Duration(seconds: 2),
+                          child: Image.asset(
+                            iconProvider.currentImagePath,
+                            width: ScreenUtil.defaultSize.width * 0.3,
+                          ),
+                        );
+                      },
                     ),
+                    // Image.asset(
+                    //   ecellLogo,
+                    //   width: ScreenUtil.defaultSize.width * 0.3,
+                    // ),
                     const Text(
                       "Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
                       textAlign: TextAlign.justify,
@@ -57,18 +86,6 @@ class Moto extends StatelessWidget {
             ),
           ),
         ),
-        // Positioned(
-        //   top: 0,
-        //   right: -20,
-        //   child: Container(
-        //     width: 40,
-        //     height: 40,
-        //     decoration: const BoxDecoration(
-        //       shape: BoxShape.circle,
-        //       color: ecellBlue,
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
