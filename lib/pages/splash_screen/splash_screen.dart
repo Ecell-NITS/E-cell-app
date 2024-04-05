@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/configs/configurations/assets/asset.dart';
 import 'package:ecell_app/pages/home_page/home_page.dart';
+import 'package:ecell_app/pages/login_page/login_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
   static const String routeName = '/splashScreen';
 
   @override
@@ -21,8 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushNamedAndRemoveUntil(
         context,
-        HomePage.routeName,
-        (Route<dynamic> route) => false,
+        LoginPage.routeName,
+        (route) => false,
       );
     });
   }
