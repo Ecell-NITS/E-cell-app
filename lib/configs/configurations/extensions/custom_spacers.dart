@@ -35,6 +35,7 @@ class CustomSpacers {
   static final Widget height70 = SizedBox(height: 70.h);
   static final Widget height74 = SizedBox(height: 74.h);
   static final Widget height80 = SizedBox(height: 80.h);
+  static final Widget height100 = SizedBox(height: 100.h);
   static final Widget height160 = SizedBox(height: 160.h);
 
   static final Widget width4 = SizedBox(width: 4.w);
