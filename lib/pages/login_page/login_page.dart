@@ -22,79 +22,97 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomBackground(
-          bodyWidget: SizedBox(
-        width: ScreenUtil.defaultSize.width,
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomSpacers.height160,
-              const Text(
-                "Login",
-                style: TextStyle(
-                    color: loginTextColor,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w700),
-              ),
-              CustomSpacers.height10,
-              const Text(
-                "Please log in to continue",
-                style: TextStyle(color: Colors.white, fontSize: 14),
-              ),
-              CustomSpacers.height20,
-              CustomTextField(
-                validator: Validator.isEmailValid,
-                hintText: 'EMAIL',
-                prefixIcon: const Icon(
-                  Icons.mail_outline,
-                  color: Colors.white,
+          bodyWidget: SingleChildScrollView(
+        child: SizedBox(
+          width: ScreenUtil.defaultSize.width,
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomSpacers.height160,
+                const Text(
+                  "Login",
+                  style: TextStyle(
+                      color: loginTextColor,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700),
                 ),
-              ),
-              CustomSpacers.height16,
-              CustomTextField(
-                  validator: Validator.isPasswordValid,
-                  hintText: 'password',
+                CustomSpacers.height10,
+                const Text(
+                  "Please log in to continue",
+                  style: TextStyle(color: Colors.white, fontSize: 14),
+                ),
+                CustomSpacers.height20,
+                CustomTextField(
+                  validator: Validator.isEmailValid,
+                  hintText: 'EMAIL',
                   prefixIcon: const Icon(
-                    Icons.lock_outline,
+                    Icons.mail_outline,
                     color: Colors.white,
                   ),
-                  obscureText: obscureText,
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
-                    },
-                    icon: obscureText
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off),
-                  )),
-              SizedBox(
-                width: ScreenUtil.defaultSize.width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Forgot Password',
-                          style: TextStyle(color: lightBlue),
-                        ))
-                  ],
                 ),
-              ),
-              CustomSpacers.height10,
-              SizedBox(
-                width: ScreenUtil.defaultSize.width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    CustomButton(onPressed: () {}, text: 'LOGIN'),
-                  ],
+                CustomSpacers.height16,
+                CustomTextField(
+                    validator: Validator.isPasswordValid,
+                    hintText: 'password',
+                    prefixIcon: const Icon(
+                      Icons.lock_outline,
+                      color: Colors.white,
+                    ),
+                    obscureText: obscureText,
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      icon: obscureText
+                          ? const Icon(Icons.visibility)
+                          : const Icon(Icons.visibility_off),
+                    )),
+                SizedBox(
+                  width: ScreenUtil.defaultSize.width,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Forgot Password',
+                            style: TextStyle(color: lightBlue),
+                          ))
+                    ],
+                  ),
                 ),
-              )
-            ],
+                CustomSpacers.height10,
+                SizedBox(
+                  width: ScreenUtil.defaultSize.width,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      CustomButton(onPressed: () {}, text: 'LOGIN'),
+                      CustomSpacers.height20,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Already have an account?',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(color: lightBlue),
+                              ))
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       )),
