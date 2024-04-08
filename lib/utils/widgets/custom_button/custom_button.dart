@@ -4,8 +4,14 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final void Function() onPressed;
   final String text;
+  final Color? newButtonColor;
 
-  const CustomButton({super.key, required this.onPressed, required this.text});
+  const CustomButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+    this.newButtonColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,10 @@ class CustomButton extends StatelessWidget {
       width: ScreenUtil.defaultSize.width * 0.4,
       child: ElevatedButton(
           style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(buttonColor)),
+            backgroundColor: newButtonColor == null
+                ? MaterialStatePropertyAll(buttonColor)
+                : MaterialStatePropertyAll(newButtonColor),
+          ),
           onPressed: onPressed,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
