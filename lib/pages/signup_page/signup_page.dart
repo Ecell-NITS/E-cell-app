@@ -1,10 +1,17 @@
+import 'dart:convert';
+
 import 'package:ecell_app/configs/configs.dart';
+import 'package:ecell_app/controllers/controllers.dart';
+import 'package:ecell_app/dialogs/dialogs.dart';
+import 'package:ecell_app/models/models.dart';
+import 'package:ecell_app/pages/home_page/home_page.dart';
 import 'package:ecell_app/pages/login_page/login_page.dart';
 import 'package:ecell_app/utils/validator.dart';
 import 'package:ecell_app/utils/widgets/custom_background/custom_background.dart';
 import 'package:ecell_app/utils/widgets/custom_button/custom_button.dart';
 import 'package:ecell_app/utils/widgets/custom_text_field/custom_text_field.dart';
 import 'package:ecell_app/utils/widgets/snack_bar/error_snack_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -20,13 +27,38 @@ class _SignUpPageState extends State<SignUpPage> {
   bool obscureText = true;
   bool obscureText2 = true;
   TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   TextEditingController passController = TextEditingController();
   TextEditingController confirmPassController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
 
-  void validate() {
+  void validate() async {
+    bool isSignUpSuccess = false;
     if (formKey.currentState!.validate() &&
         passController.text == confirmPassController.text) {
+      showLoadingOverlay(
+        parentContext: context,
+        asyncTask: () async {
+          final user = UserModel(
+            name: nameController.text.toString(),
+            email: emailController.text.toString().toLowerCase().trim(),
+            password: passController.text.toString(),
+          );
+          final res = await UserController.create(user: user);
+          if (res.statusCode == 200) {
+            isSignUpSuccess = true;
+            showSnackBar(context, (jsonDecode(res.body) as Map)["message"]);
+          } else {
+            showSnackBar(context, (jsonDecode(res.body) as Map)["error"]);
+          }
+        },
+        onCompleted: () {
+          if (isSignUpSuccess) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, LoginPage.routeName, (route) => false);
+          }
+        },
+      );
     } else if (passController.text != confirmPassController.text) {
       showSnackBar(context, 'Passwords do not match');
     } else {
@@ -63,6 +95,23 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   CustomSpacers.height20,
                   CustomTextField(
+                    cursorColor: Colors.white,
+                    validator: (value) {
+                      if (value!.isNotEmpty) {
+                        return null;
+                      }
+                      return "Name cannot be empty";
+                    },
+                    controller: nameController,
+                    hintText: 'NAME',
+                    prefixIcon: const Icon(
+                      CupertinoIcons.profile_circled,
+                      color: Colors.white,
+                    ),
+                  ),
+                  CustomSpacers.height16,
+                  CustomTextField(
+                    cursorColor: Colors.white,
                     validator: Validator.isEmailValid,
                     controller: emailController,
                     hintText: 'EMAIL',
@@ -73,6 +122,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   CustomSpacers.height16,
                   CustomTextField(
+                      cursorColor: Colors.white,
                       validator: Validator.isPasswordValid,
                       controller: passController,
                       hintText: 'PASSWORD',
@@ -93,6 +143,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       )),
                   CustomSpacers.height16,
                   CustomTextField(
+                      cursorColor: Colors.white,
                       validator: Validator.isPasswordValid,
                       controller: confirmPassController,
                       hintText: 'RE-ENTER PASSWORD',
@@ -117,7 +168,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CustomButton(onPressed: validate, text: 'SIGNUP'),
+                        CustomButton(
+                          onPressed: validate,
+                          text: 'SIGNUP',
+                          // newButtonColor: lightBlue,
+                        ),
                         CustomSpacers.height20,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +188,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 },
                                 child: const Text(
                                   'Log in',
-                                  style: TextStyle(color: lightBlue),
+                                  style: TextStyle(color: loginTextColor),
                                 ))
                           ],
                         )
