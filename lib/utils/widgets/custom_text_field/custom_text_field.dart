@@ -9,16 +9,19 @@ class CustomTextField extends StatefulWidget {
   String hintText;
   Widget? prefixIcon;
   Widget? suffixIcon;
+  Color? cursorColor;
 
-  CustomTextField(
-      {super.key,
-      this.controller,
-      this.validator,
-      this.obscureText = false,
-      this.textInputType,
-      required this.hintText,
-      this.prefixIcon,
-      this.suffixIcon});
+  CustomTextField({
+    super.key,
+    this.controller,
+    this.validator,
+    this.obscureText = false,
+    this.textInputType,
+    required this.hintText,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.cursorColor,
+  });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -28,6 +31,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: widget.cursorColor,
       controller: widget.controller,
       validator: widget.validator,
       obscureText: widget.obscureText,
