@@ -1,3 +1,4 @@
+import 'package:ecell_app/configs/configs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -33,7 +34,9 @@ Future<void> showLoadingOverlay(
                     child: SizedBox(
                       height: 40,
                       width: 40,
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        color: lightBlue,
+                      ),
                     ),
                   );
                 }),
