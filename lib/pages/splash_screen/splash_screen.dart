@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Image.asset(ecellLogo),
             CustomSpacers.height10,
             const CircularProgressIndicator(
-              color: ecellBlue,
+              color: lightBlue,
             )
           ],
         ),
