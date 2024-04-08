@@ -13,7 +13,10 @@ SnackBar _errorSnackBar(String message, BuildContext context) {
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          child: Text(message),
+          child: Text(
+            message,
+            style: const TextStyle(color: Colors.white),
+          ),
         ),
       ],
     ),
