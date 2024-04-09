@@ -20,7 +20,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String? get bio => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $UserModelCopyWith<$Res> {
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
   $Res call(
-      {String name,
+      {String? name,
       String email,
       String password,
       String? bio,
@@ -71,7 +71,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? email = null,
     Object? password = null,
     Object? bio = freezed,
@@ -84,10 +84,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? deleteAccount = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -141,7 +141,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
+      {String? name,
       String email,
       String password,
       String? bio,
@@ -165,7 +165,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
     Object? email = null,
     Object? password = null,
     Object? bio = freezed,
@@ -178,10 +178,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? deleteAccount = null,
   }) {
     return _then(_$UserModelImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -230,7 +230,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
-      {required this.name,
+      {this.name,
       required this.email,
       required this.password,
       this.bio,
@@ -249,7 +249,7 @@ class _$UserModelImpl implements _UserModel {
       _$$UserModelImplFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
   final String email;
   @override
@@ -338,7 +338,7 @@ class _$UserModelImpl implements _UserModel {
 
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
-      {required final String name,
+      {final String? name,
       required final String email,
       required final String password,
       final String? bio,
@@ -354,7 +354,7 @@ abstract class _UserModel implements UserModel {
       _$UserModelImpl.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
   String get email;
   @override

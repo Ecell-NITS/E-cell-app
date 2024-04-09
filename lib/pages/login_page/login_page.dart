@@ -1,4 +1,10 @@
+import 'dart:convert';
+
 import 'package:ecell_app/configs/configs.dart';
+import 'package:ecell_app/controllers/controllers.dart';
+import 'package:ecell_app/dialogs/dialogs.dart';
+import 'package:ecell_app/models/models.dart';
+import 'package:ecell_app/pages/home_page/home_page.dart';
 import 'package:ecell_app/pages/signup_page/signup_page.dart';
 import 'package:ecell_app/utils/validator.dart';
 import 'package:ecell_app/utils/widgets/custom_background/custom_background.dart';
@@ -24,6 +30,28 @@ class _LoginPageState extends State<LoginPage> {
 
   void validate() {
     if (formKey.currentState!.validate()) {
+      bool isLoginSuccess = false;
+      showLoadingOverlay(
+        parentContext: context,
+        asyncTask: () async {
+          final user = UserModel(
+              email: emailController.text, password: passController.text);
+          final res = await UserController.login(user: user);
+          if (res.statusCode == 200) {
+            isLoginSuccess = true;
+            showSnackBar(context, (jsonDecode(res.body) as Map)["message"]);
+            UserController.user_token = (jsonDecode(res.body) as Map)["token"];
+          } else {
+            showSnackBar(context, (jsonDecode(res.body) as Map)["error"]);
+          }
+        },
+        onCompleted: () {
+          if (isLoginSuccess) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, HomePage.routeName, (route) => false);
+          }
+        },
+      );
     } else {
       showSnackBar(context, 'Please fill in the proper credentials');
     }

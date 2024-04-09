@@ -2,10 +2,12 @@ import 'dart:convert';
 
 import 'package:ecell_app/controllers/constants.dart';
 import 'package:ecell_app/models/models.dart';
+import 'package:ecell_app/models/user/user_model.dart';
 import 'package:http/http.dart' as http;
 // import 'package:http/http.dart';
 
 part 'functions/_create_impl.dart';
+part 'functions/_login_impl.dart';
 
 class UserController {
   static String? user_token;
@@ -25,5 +27,9 @@ class UserController {
 
   static Future<http.Response> create({required UserModel user}) async {
     return await _createImpl(user: user);
+  }
+
+  static Future<http.Response> login({required UserModel user}) async {
+    return await _loginImpl(user: user);
   }
 }
