@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:ecell_app/configs/configs.dart';
-import 'package:ecell_app/configs/configurations/assets/asset.dart';
-import 'package:ecell_app/pages/home_page/home_page.dart';
 import 'package:ecell_app/pages/login_page/login_page.dart';
 import 'package:flutter/material.dart';
 

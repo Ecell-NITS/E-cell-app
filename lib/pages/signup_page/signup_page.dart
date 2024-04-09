@@ -4,7 +4,6 @@ import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/controllers/controllers.dart';
 import 'package:ecell_app/dialogs/dialogs.dart';
 import 'package:ecell_app/models/models.dart';
-import 'package:ecell_app/pages/home_page/home_page.dart';
 import 'package:ecell_app/pages/login_page/login_page.dart';
 import 'package:ecell_app/utils/validator.dart';
 import 'package:ecell_app/utils/widgets/custom_background/custom_background.dart';
