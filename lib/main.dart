@@ -2,6 +2,7 @@ import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/pages/collabs_page/collabs_page.dart';
 import 'package:ecell_app/pages/home_page/utils/icon_provider.dart';
 import 'package:ecell_app/pages/login_page/login_page.dart';
+import 'package:ecell_app/pages/resources_page/resources_page.dart';
 import 'package:ecell_app/pages/signup_page/signup_page.dart';
 import 'package:ecell_app/pages/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class ECellApp extends StatelessWidget {
           HomePage.routeName: (context) => const HomePage(),
           SplashScreen.routeName: (context) => const SplashScreen(),
           CollabPage.routeName: (context) => const CollabPage(),
+          ResourcePage.routeName: (context) => const ResourcePage(),
         },
         initialRoute: SplashScreen.routeName,
         // initialRoute: CollabPage.routeName,
