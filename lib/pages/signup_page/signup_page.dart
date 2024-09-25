@@ -70,10 +70,10 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       body: CustomBackground(
           bodyWidget: SingleChildScrollView(
-        child: SizedBox(
-          width: ScreenUtil.defaultSize.width,
-          child: Padding(
-            padding: const EdgeInsets.all(32.0),
+        child: Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          padding: const EdgeInsets.all(32.0),
             child: Form(
               key: formKey,
               child: Column(
@@ -197,7 +197,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
             ),
-          ),
+
         ),
       )),
     );
