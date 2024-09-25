@@ -5,6 +5,7 @@ import 'package:ecell_app/pages/login_page/login_page.dart';
 import 'package:ecell_app/pages/resources_page/resources_page.dart';
 import 'package:ecell_app/pages/signup_page/signup_page.dart';
 import 'package:ecell_app/pages/splash_screen/splash_screen.dart';
+import 'package:ecell_app/pages/teams_page/teams_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'pages/pages.dart';
@@ -22,7 +23,7 @@ class ECellApp extends StatelessWidget {
       create: (context) => IconProvider(),
       child: MaterialApp(
         title: "E-Cell App",
-        theme: darkTheme,
+        theme: darkTheme,git add
         debugShowCheckedModeBanner: false,
         home: const HomePage(),
         routes: {
@@ -32,6 +33,7 @@ class ECellApp extends StatelessWidget {
           SplashScreen.routeName: (context) => const SplashScreen(),
           CollabPage.routeName: (context) => const CollabPage(),
           ResourcePage.routeName: (context) => const ResourcePage(),
+          TeamsPage.routeName: (context) => const TeamsPage(),
         },
         initialRoute: SplashScreen.routeName,
         // initialRoute: CollabPage.routeName,
