@@ -1,5 +1,6 @@
 import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/pages/collabs_page/collabs_page.dart';
+import 'package:ecell_app/pages/gallery_page/gallery_page.dart';
 import 'package:ecell_app/pages/home_page/utils/icon_provider.dart';
 import 'package:ecell_app/pages/login_page/login_page.dart';
 import 'package:ecell_app/pages/profile_page/profile_page.dart';
@@ -24,7 +25,7 @@ class ECellApp extends StatelessWidget {
       create: (context) => IconProvider(),
       child: MaterialApp(
         title: "E-Cell App",
-        theme: darkTheme,git add
+        theme: darkTheme,
         debugShowCheckedModeBanner: false,
         home: const HomePage(),
         routes: {
@@ -36,6 +37,7 @@ class ECellApp extends StatelessWidget {
           ProfilePage.routeName: (context) => const ProfilePage(),
           ResourcePage.routeName: (context) => const ResourcePage(),
           TeamsPage.routeName: (context) => const TeamsPage(),
+          GalleryPage.routeName: (context) => const GalleryPage(),
         },
         initialRoute: SplashScreen.routeName,
         // initialRoute: CollabPage.routeName,
