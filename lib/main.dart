@@ -24,7 +24,7 @@ class ECellApp extends StatelessWidget {
       create: (context) => IconProvider(),
       child: MaterialApp(
         title: "E-Cell App",
-        theme: darkTheme,git add
+        theme: darkTheme,
         debugShowCheckedModeBanner: false,
         home: const HomePage(),
         routes: {
@@ -37,7 +37,7 @@ class ECellApp extends StatelessWidget {
           ResourcePage.routeName: (context) => const ResourcePage(),
           TeamsPage.routeName: (context) => const TeamsPage(),
         },
-        initialRoute: SplashScreen.routeName,
+        initialRoute: HomePage.routeName,
         // initialRoute: CollabPage.routeName,
       ),
     );
