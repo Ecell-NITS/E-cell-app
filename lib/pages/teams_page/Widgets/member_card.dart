@@ -1,52 +1,122 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ecell_app/configs/configs.dart';
-class MemberCard extends StatelessWidget {
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+class MemberCard extends StatefulWidget {
   final String name;
   final String designation;
   final String img;
   const MemberCard({required this.name, required this.designation, required this.img,super.key});
 
   @override
+  State<MemberCard> createState() => _MemberCardState();
+}
+
+class _MemberCardState extends State<MemberCard> {
+  bool focus=false;
+  FocusNode focusNode=FocusNode();
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: const LinearGradient(
-            stops: [0.77,0.79,1],
-            colors: [Color.fromRGBO(255, 255, 255,0.2),Color.fromRGBO(22, 39, 64,1),Color.fromRGBO(22, 39, 64,1)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          )
-      ),
-      child: Card(
-        margin: const EdgeInsets.all(3),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        color: Colors.white,
-        child: Column(
-            children: [AspectRatio(
-              aspectRatio: 142/165,
-              child: Image.asset(
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.topCenter,
-                img,
-              ),
+    return Focus(
+      focusNode: focusNode,
+      canRequestFocus: true,
+      onFocusChange: (val){
+        setState(() {
+          focus=!focus;
+        });
+      },
+      child: GestureDetector(
+        onTap: (){
+          focusNode.hasFocus? focusNode.unfocus() : focusNode.requestFocus() ;
+        },
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              gradient: const LinearGradient(
+                stops: [0.77,0.79,1],
+                colors: [Color.fromRGBO(255, 255, 255,0.2),Color.fromRGBO(22, 39, 64,1),Color.fromRGBO(22, 39, 64,1)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )
+          ),
+          child: Card(
+            margin: const EdgeInsets.all(3),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
-              const SizedBox(height: 3,),
-              Text(name,
-                style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: ScreenUtil.defaultSize.width * 0.047,
-                    color: const Color.fromRGBO(22,39,64,1)
-                ),),
-              Text(designation,
-                style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: ScreenUtil.defaultSize.width * 0.038,
-                    color: const Color.fromRGBO(22,39,64,1)
+            color: Colors.white,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [Column(
+                  children: [
+                LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {return AnimatedContainer(
+                    curve: Curves.easeInOut,
+                    margin: focus? EdgeInsets.only(top: 10):EdgeInsets.zero,
+                    clipBehavior: Clip.hardEdge,
+                    width: focus? constraints.maxWidth-30:constraints.maxWidth,
+                    height: focus? constraints.maxWidth-30:constraints.maxWidth*165/142,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(focus? (constraints.maxWidth-30)/2 : 0)),
+                    duration: const Duration(milliseconds: 250),
+                      child: AspectRatio(
+                        aspectRatio: 142/165,
+                        child: Image.asset(
+                          fit: BoxFit.fitWidth,
+                          alignment: Alignment.topCenter,
+                          widget.img,
+                        ),
+                      ),
+                    );}
                 ),
-              )]
+                    const SizedBox(height: 3,),
+                    Text(widget.name,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: ScreenUtil.defaultSize.width * 0.047,
+                          color: const Color.fromRGBO(22,39,64,1)
+                      ),),
+                    Text(widget.designation,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: ScreenUtil.defaultSize.width * 0.038,
+                          color: const Color.fromRGBO(22,39,64,1)
+                      ),
+                    )]
+              ),
+                AnimatedPositioned(
+                  curve: Curves.easeInOut,
+                  bottom: focus ? 0 : -50,
+                  child: IconButton(
+                    icon: Icon(Icons.facebook,size: 30,),
+                    color:const Color.fromRGBO(22,39,64,1),
+                    onPressed: () {},
+                  ),
+                  duration: Duration(milliseconds: 250)),
+                AnimatedPositioned(
+                    curve: Curves.easeInOut,
+                    left: focus? 10 : -50,
+                    bottom: focus ? 0 : -50,
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.linkedin,size: 25,),
+                      color:const Color.fromRGBO(22,39,64,1),
+                      onPressed: () {},
+                    ),
+                    duration: Duration(milliseconds: 250)),
+                AnimatedPositioned(
+                    curve: Curves.easeInOut,
+                    right: focus? 10 : -50,
+                    bottom: focus ? 0 : -50,
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.instagram,size: 25,),
+                      color:const Color.fromRGBO(22,39,64,1),
+                      onPressed: () {},
+                    ),
+                    duration: Duration(milliseconds: 250)),
+            ]),
+          ),
         ),
       ),
     );
