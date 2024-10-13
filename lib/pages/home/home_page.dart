@@ -1,6 +1,6 @@
-import 'package:ecell_app/pages/home_page/widgets/about_us.dart';
-import 'package:ecell_app/pages/home_page/widgets/moto.dart';
-import 'package:ecell_app/pages/home_page/widgets/what_we_provide.dart';
+import 'package:ecell_app/pages/home/widgets/about_us.dart';
+import 'package:ecell_app/pages/home/widgets/moto.dart';
+import 'package:ecell_app/pages/home/widgets/what_we_provide.dart';
 import 'package:ecell_app/utils/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -22,7 +22,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        appBarText: Text('data'),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousal;
 import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/configs/configurations/assets/asset.dart';
 import 'package:ecell_app/configs/configurations/extensions/screen_utils.dart';
@@ -22,13 +22,13 @@ class WhatWeProvide extends StatelessWidget {
             ),
             Stack(
               children: [
-                CarouselSlider(
+                carousal.CarouselSlider(
                   items: [
                     Image.asset(wwp1),
                     Image.asset(wwp2),
                     Image.asset(wwp3),
                   ],
-                  options: CarouselOptions(
+                  options: carousal.CarouselOptions(
                     viewportFraction: 1.0,
                     autoPlayInterval: const Duration(seconds: 3),
                     autoPlay: true,
