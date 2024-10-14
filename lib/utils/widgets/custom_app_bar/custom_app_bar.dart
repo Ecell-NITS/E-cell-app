@@ -17,11 +17,13 @@ final Map<String, Widget> pages = {
 };
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final Widget appBarText;
+  const CustomAppBar({super.key, required this.appBarText});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      title: appBarText,
       iconTheme: const IconThemeData(color: Colors.white),
       backgroundColor: ecellBlue,
       leading: IconButton(
