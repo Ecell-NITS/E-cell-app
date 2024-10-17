@@ -1,4 +1,3 @@
-
 import 'package:ecell_app/configs/configs.dart';
 import 'package:ecell_app/utils/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,7 +13,8 @@ class ResourcePage extends StatefulWidget {
   State<ResourcePage> createState() => _ResourcePageState();
 }
 
-class _ResourcePageState extends State<ResourcePage> with SingleTickerProviderStateMixin {
+class _ResourcePageState extends State<ResourcePage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late ScrollController _scrollController;
   bool _isFooterVisible = false;
@@ -26,7 +26,8 @@ class _ResourcePageState extends State<ResourcePage> with SingleTickerProviderSt
       ..addListener(_updateIndicatorPosition);
     _scrollController = ScrollController()
       ..addListener(() {
-        if (_scrollController.offset >= _scrollController.position.maxScrollExtent - 50) {
+        if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent - 50) {
           setState(() {
             _isFooterVisible = true;
           });
@@ -54,6 +55,7 @@ class _ResourcePageState extends State<ResourcePage> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        appBarText: Text('data'),
       ),
       body: Stack(
         children: [
@@ -174,7 +176,8 @@ class _ResourcePageState extends State<ResourcePage> with SingleTickerProviderSt
                         // Slider indicating selected tab
                         AnimatedPositioned(
                           duration: Duration(milliseconds: 300),
-                          left: _tabController.index * (100.0 / 3), // Adjust based on container width
+                          left: _tabController.index *
+                              (100.0 / 3), // Adjust based on container width
                           child: Container(
                             width: 34.0, // Smaller width for the slider
                             height: 6.0,

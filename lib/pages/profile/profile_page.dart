@@ -13,14 +13,16 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-    final double containerWidth = screenSize.width * 0.8; 
-    final double containerHeight = screenSize.height * 0.52; 
-    const double textFieldHeight = 50.0; 
-    const double spacing = 20.0; 
-    const double bottomTextHeight = 20.0; 
+    final double containerWidth = screenSize.width * 0.8;
+    final double containerHeight = screenSize.height * 0.52;
+    const double textFieldHeight = 50.0;
+    const double spacing = 20.0;
+    const double bottomTextHeight = 20.0;
 
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        appBarText: Text('data'),
+      ),
       body: Center(
         child: Stack(
           clipBehavior: Clip.none,
@@ -36,7 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: spacing), 
+                    const SizedBox(height: spacing),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
@@ -60,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: spacing), 
+                    const SizedBox(height: spacing),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
@@ -128,8 +130,8 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Positioned(
               top: -containerHeight * 0.20,
-              left: 0, 
-              right: 0, 
+              left: 0,
+              right: 0,
               child: Align(
                 alignment: Alignment.center,
                 child: Stack(
@@ -141,8 +143,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: ClipPath(
                           clipper: SemicircleClipper(top: false),
                           child: Container(
-                            width: containerWidth * 0.6, 
-                            height: containerHeight * 0.20, 
+                            width: containerWidth * 0.6,
+                            height: containerHeight * 0.20,
                             decoration: const BoxDecoration(
                               color: Color(0xFFFFFFFF),
                             ),
@@ -156,7 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: ClipPath(
                           clipper: SemicircleClipper(top: true),
                           child: Container(
-                            width: containerWidth * 0.6, 
+                            width: containerWidth * 0.6,
                             height: containerHeight * 0.20,
                             decoration: const BoxDecoration(
                               color: Color(0xFF162740),
@@ -169,8 +171,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       padding: const EdgeInsets.all(5),
                       child: ClipOval(
                         child: Container(
-                          width: containerWidth * 0.5, 
-                          height: containerWidth * 0.5, 
+                          width: containerWidth * 0.5,
+                          height: containerWidth * 0.5,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage('assets/images/profile.png'),
