@@ -47,12 +47,12 @@ class _MemberCardState extends State<MemberCard> {
               borderRadius: BorderRadius.circular(10),
             ),
             color: Colors.white,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [Column(
-                  children: [
-                LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {return AnimatedContainer(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) => Stack(
+                alignment: Alignment.center,
+                children: [Column(
+                    children: [
+                  AnimatedContainer(
                     curve: Curves.easeInOut,
                     margin: focus? EdgeInsets.only(top: 10):EdgeInsets.zero,
                     clipBehavior: Clip.hardEdge,
@@ -69,53 +69,53 @@ class _MemberCardState extends State<MemberCard> {
                           widget.img,
                         ),
                       ),
-                    );}
+                    ),
+                      const SizedBox(height: 3,),
+                      Text(widget.name,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: constraints.maxWidth*0.1,
+                            color: const Color.fromRGBO(22,39,64,1)
+                        ),),
+                      Text(widget.designation,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: constraints.maxWidth*0.09,
+                            color: const Color.fromRGBO(22,39,64,1)
+                        ),
+                      )]
                 ),
-                    const SizedBox(height: 3,),
-                    Text(widget.name,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: ScreenUtil.defaultSize.width * 0.047,
-                          color: const Color.fromRGBO(22,39,64,1)
-                      ),),
-                    Text(widget.designation,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: ScreenUtil.defaultSize.width * 0.038,
-                          color: const Color.fromRGBO(22,39,64,1)
+                  AnimatedPositioned(
+                    curve: Curves.easeInOut,
+                    bottom: focus ? 0 : -constraints.maxWidth*0.3,
+                    child: IconButton(
+                      icon: Icon(Icons.facebook,size: constraints.maxWidth*0.18,),
+                      color:const Color.fromRGBO(22,39,64,1),
+                      onPressed: () {},
+                    ),
+                    duration: Duration(milliseconds: 250)),
+                  AnimatedPositioned(
+                      curve: Curves.easeInOut,
+                      left: focus? 10 : -constraints.maxWidth*0.3,
+                      bottom: focus ? 0 : -constraints.maxWidth*0.3,
+                      child: IconButton(
+                        icon: Icon(FontAwesomeIcons.linkedin,size: constraints.maxWidth*0.18,),
+                        color:const Color.fromRGBO(22,39,64,1),
+                        onPressed: () {},
                       ),
-                    )]
-              ),
-                AnimatedPositioned(
-                  curve: Curves.easeInOut,
-                  bottom: focus ? 0 : -50,
-                  child: IconButton(
-                    icon: Icon(Icons.facebook,size: 30,),
-                    color:const Color.fromRGBO(22,39,64,1),
-                    onPressed: () {},
-                  ),
-                  duration: Duration(milliseconds: 250)),
-                AnimatedPositioned(
-                    curve: Curves.easeInOut,
-                    left: focus? 10 : -50,
-                    bottom: focus ? 0 : -50,
-                    child: IconButton(
-                      icon: Icon(FontAwesomeIcons.linkedin,size: 25,),
-                      color:const Color.fromRGBO(22,39,64,1),
-                      onPressed: () {},
-                    ),
-                    duration: Duration(milliseconds: 250)),
-                AnimatedPositioned(
-                    curve: Curves.easeInOut,
-                    right: focus? 10 : -50,
-                    bottom: focus ? 0 : -50,
-                    child: IconButton(
-                      icon: Icon(FontAwesomeIcons.instagram,size: 25,),
-                      color:const Color.fromRGBO(22,39,64,1),
-                      onPressed: () {},
-                    ),
-                    duration: Duration(milliseconds: 250)),
-            ]),
+                      duration: Duration(milliseconds: 250)),
+                  AnimatedPositioned(
+                      curve: Curves.easeInOut,
+                      right: focus? 10 : -constraints.maxWidth*0.3,
+                      bottom: focus ? 0 : -constraints.maxWidth*0.3,
+                      child: IconButton(
+                        icon: Icon(FontAwesomeIcons.instagram,size: constraints.maxWidth*0.18,),
+                        color:const Color.fromRGBO(22,39,64,1),
+                        onPressed: () {},
+                      ),
+                      duration: Duration(milliseconds: 250)),
+              ]),
+            ),
           ),
         ),
       ),

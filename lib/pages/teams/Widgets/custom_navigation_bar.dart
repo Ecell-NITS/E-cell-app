@@ -72,9 +72,10 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return Stack(
+    children: [
       Container(
-        height: MediaQuery.sizeOf(context).height * 53 / 800,
+        height: 50,
         width: MediaQuery.sizeOf(context).width,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -164,7 +165,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         right: rightarrow,
         child: Container(
             width: 35,
-            height: MediaQuery.sizeOf(context).height * 53 / 800,
+            height: 50,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),
@@ -187,7 +188,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         left: leftarrow,
         child: Container(
             width: 35,
-            height: MediaQuery.sizeOf(context).height * 53 / 800,
+            height: 50,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),

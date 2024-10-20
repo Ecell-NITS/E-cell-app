@@ -1,9 +1,5 @@
 import 'package:ecell_app/controllers/controllers.dart';
-import 'package:ecell_app/pages/collabs_page/collabs_page.dart';
-import 'package:ecell_app/pages/home_page/home_page.dart';
-import 'package:ecell_app/pages/profile_page/profile_page.dart';
-import 'package:ecell_app/pages/resources_page/resources_page.dart';
-import 'package:ecell_app/pages/teams_page/teams_page.dart';
+import 'package:ecell_app/pages/pages.dart';
 import 'package:flutter/material.dart';
 
 import '../../../configs/configs.dart';
@@ -33,28 +29,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             height: MediaQuery.sizeOf(context).height,
             width: MediaQuery.sizeOf(context).width,
             color: const Color.fromRGBO(14, 54, 105, 1),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [const SizedBox(height: 20,),
-                IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: const Icon(Icons.close, color: Colors.white, size: 30)),
-                Column(
-                  children: pages.keys
-                      .map((e) => TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => pages[e]!));
-                          },
-                          child: Text(
-                            e,
-                            style: const TextStyle(color: Colors.white,
-                            fontSize: 26),
-                          )))
-                      .toList().separate(40),
-                )
-              ].separate(40),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [const SizedBox(height: 20,),
+                  IconButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      icon: const Icon(Icons.close, color: Colors.white, size: 30)),
+                  Column(
+                    children: pages.keys
+                        .map((e) => TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => pages[e]!));
+                            },
+                            child: Text(
+                              e,
+                              style: const TextStyle(color: Colors.white,
+                              fontSize: 26),
+                            )))
+                        .toList().separate(40),
+                  )
+                ].separate(40),
+              ),
             ),
           )));
         },
