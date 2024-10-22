@@ -1,8 +1,6 @@
 import 'package:ecell_app/utils/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
-
-
 class GalleryPage extends StatefulWidget {
   const GalleryPage({super.key});
 
@@ -13,8 +11,8 @@ class GalleryPage extends StatefulWidget {
 }
 
 class _GalleryPageState extends State<GalleryPage> {
-  String selectedYear = "All"; // Default year
-  String selectedEvent = "All"; // Default event
+  String selectedYear = "All";
+  String selectedEvent = "All";
 
   final List<String> years = ["All", "2022", "2023", "2024"];
   final List<String> events = ["All", "Event 2", "Event 3"];
@@ -25,21 +23,21 @@ class _GalleryPageState extends State<GalleryPage> {
     'assets/images/galleryimg.jpeg',
     'assets/images/galleryimg.jpeg',
     'assets/images/galleryimg.jpeg',
-
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        appBarText: Text(
+          'Gallery',
+          style: const TextStyle(color: Colors.white, fontSize: 20),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Add SizedBox for spacing below the AppBar
-            SizedBox(height: 20), // Adjust height as per your needs
-
-            // Central paragraph with padding from the left and right
+            SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.only(top: 30.0, bottom: 20.0),
               child: Padding(
@@ -51,26 +49,21 @@ class _GalleryPageState extends State<GalleryPage> {
                 ),
               ),
             ),
-
-            // Container for dropdowns and grid with RGB blue background
             Center(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.9, // Making box narrower
+                width: MediaQuery.of(context).size.width * 0.9,
                 padding: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(14, 54, 105, 1),
                   borderRadius: BorderRadius.circular(7.0),
                 ),
-                 // Blue color using RGB values
                 child: Column(
                   children: [
-                    // Drop-down menus with labels for year and event
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 0.0), // Reduced horizontal padding
+                      padding: const EdgeInsets.symmetric(horizontal: 0.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Year dropdown with label
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +81,7 @@ class _GalleryPageState extends State<GalleryPage> {
                                   ),
                                   child: SizedBox(
                                     height: 40,
-                                    width: 60, // Set specific width for dropdown
+                                    width: 60,
                                     child: DropdownButtonHideUnderline(
                                       child: DropdownButton<String>(
                                         value: selectedYear,
@@ -117,10 +110,7 @@ class _GalleryPageState extends State<GalleryPage> {
                               ],
                             ),
                           ),
-
-                          SizedBox(width: 10), // Space between two dropdowns
-
-                          // Event dropdown with label
+                          SizedBox(width: 10),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -170,24 +160,20 @@ class _GalleryPageState extends State<GalleryPage> {
                         ],
                       ),
                     ),
-
-                    const SizedBox(height: 20), // Space between dropdown and grid
-
-                    // Grid for images (one column, large pictures)
+                    const SizedBox(height: 20),
                     Center(
                       child: GridView.builder(
-                        physics: NeverScrollableScrollPhysics(), // Disable internal scrolling
-                        shrinkWrap: true, // Shrinks the grid to fit content
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 1, // Single column
-                          childAspectRatio: 16 / 9, // Adjust aspect ratio for larger pictures
-                          mainAxisSpacing: 10, // Space between grid items
+                          crossAxisCount: 1,
+                          childAspectRatio: 16 / 9,
+                          mainAxisSpacing: 10,
                         ),
-                        itemCount: imagePaths.length, // Using the actual number of images
+                        itemCount: imagePaths.length,
                         itemBuilder: (context, index) {
                           return Stack(
                             children: [
-                              // The image itself
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Image.asset(
@@ -197,16 +183,14 @@ class _GalleryPageState extends State<GalleryPage> {
                                   height: double.infinity,
                                 ),
                               ),
-
-                              // Positioned for upper half border (e.g., red)
                               Positioned(
                                 top: 0,
                                 left: 0,
                                 right: 0,
                                 child: Container(
-                                  height: 5, // Adjust border thickness
+                                  height: 5,
                                   decoration: BoxDecoration(
-                                    color: Color.fromRGBO(22, 39, 64, 1), // Upper half border color
+                                    color: Color.fromRGBO(22, 39, 64, 1),
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(10),
                                       topRight: Radius.circular(10),
@@ -214,20 +198,18 @@ class _GalleryPageState extends State<GalleryPage> {
                                   ),
                                 ),
                               ),
-
-                              // Positioned for lower half border (e.g., blue)
                               Positioned(
                                 left: 0,
                                 top: 0,
                                 bottom: 0,
-                                width: 5, // Width of the left border
+                                width: 5,
                                 child: Column(
                                   children: [
                                     Expanded(
                                       flex: 1,
                                       child: Container(
                                         decoration: const BoxDecoration(
-                                          color: Color.fromRGBO(22, 39, 64, 1), // Upper half color
+                                          color: Color.fromRGBO(22, 39, 64, 1),
                                           borderRadius: BorderRadius.only(
                                             topLeft: Radius.circular(10),
                                           ),
@@ -238,7 +220,7 @@ class _GalleryPageState extends State<GalleryPage> {
                                       flex: 1,
                                       child: Container(
                                         decoration: const BoxDecoration(
-                                          color: Color.fromRGBO(68, 110, 163, 1), // Lower half color
+                                          color: Color.fromRGBO(68, 110, 163, 1),
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(10),
                                           ),
@@ -248,20 +230,18 @@ class _GalleryPageState extends State<GalleryPage> {
                                   ],
                                 ),
                               ),
-
-                              // Positioned for right dual-colored border
                               Positioned(
                                 right: 0,
                                 top: 0,
                                 bottom: 0,
-                                width: 5, // Width of the right border
+                                width: 5,
                                 child: Column(
                                   children: [
                                     Expanded(
                                       flex: 1,
                                       child: Container(
                                         decoration: const BoxDecoration(
-                                          color: Color.fromRGBO(22, 39, 64, 1), // Upper half color
+                                          color: Color.fromRGBO(22, 39, 64, 1),
                                           borderRadius: BorderRadius.only(
                                             topRight: Radius.circular(10),
                                           ),
@@ -272,7 +252,7 @@ class _GalleryPageState extends State<GalleryPage> {
                                       flex: 1,
                                       child: Container(
                                         decoration: const BoxDecoration(
-                                          color: Color.fromRGBO(68, 110, 163, 1), // Lower half color
+                                          color: Color.fromRGBO(68, 110, 163, 1),
                                           borderRadius: BorderRadius.only(
                                             bottomRight: Radius.circular(10),
                                           ),
@@ -287,9 +267,9 @@ class _GalleryPageState extends State<GalleryPage> {
                                 left: 0,
                                 right: 0,
                                 child: Container(
-                                  height: 5, // Adjust border thickness
+                                  height: 5,
                                   decoration: BoxDecoration(
-                                    color: Color.fromRGBO(68, 110, 163, 1), // Lower half border color
+                                    color: Color.fromRGBO(68, 110, 163, 1),
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(10),
                                       bottomRight: Radius.circular(10),
