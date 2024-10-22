@@ -4,6 +4,7 @@ import 'package:ecell_app/pages/Events-page/Events-page.dart';
 import 'package:ecell_app/pages/collabs_page/collabs_page.dart';
 import 'package:ecell_app/pages/home_page/utils/icon_provider.dart';
 import 'package:ecell_app/pages/splash_screen/splash_screen.dart';
+import 'package:ecell_app/pages/testimonial_page/testimonial_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'pages/pages.dart';
@@ -30,6 +31,8 @@ class ECellApp extends StatelessWidget {
           SplashScreen.routeName: (context) => const SplashScreen(),
           CollabPage.routeName: (context) => const CollabPage(),
           EventRegistrationpage.routeName: (context) => const EventRegistrationpage(),
+          TestimonialPage.routeName: (context) => const TestimonialPage(),
+
         },
         // initialRoute: CollabPage.routeName,
       ),
