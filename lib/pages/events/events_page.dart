@@ -1,5 +1,5 @@
-import 'package:ecell_app/pages/events/Event_registration.dart';
 import 'package:ecell_app/pages/events/Widgets/HorizontalScrollableStack.dart';
+import 'package:ecell_app/pages/events/event_registration.dart';
 import 'package:ecell_app/utils/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:ecell_app/utils/widgets/custom_background/custom_background.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,58 +26,71 @@ class _EventsPageState extends State<Eventspage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(
-          appBarText: Text(
-            'data',
+      appBar: CustomAppBar(
+        appBarText: Text(
+          'Events Page',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      body: CustomBackground(
+        bodyWidget: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 50), // Shifts the content down
+
+              // First "Events" Text and Scrollable Stack
+              GestureDetector(
+                onTap: () => _navigateToEventDetail(context),
+                child: Center(
+                  child: Text(
+                    'Events',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              // Making the Scrollable Stack dynamic
+              Container(
+                width: MediaQuery.of(context).size.width, // Dynamically set the width
+                child: HorizontalScrollableStack(), // Your horizontal scrolling widget
+              ),
+
+              SizedBox(height: 20),
+
+              // Second "Events" Text and Scrollable Stack
+              GestureDetector(
+                onTap: () => _navigateToEventDetail(context),
+                child: Center(
+                  child: Text(
+                    'Events',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              // Second dynamic Scrollable Stack
+              Container(
+                width: MediaQuery.of(context).size.width, // Dynamically set the width
+                child: HorizontalScrollableStack(),
+              ),
+
+              SizedBox(height: 20),
+            ],
           ),
         ),
-        body: CustomBackground(
-          bodyWidget: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: 50), // Shifts the content down
-                InkWell(
-                  onTap: () => _navigateToEventDetail(
-                      context), // Navigate to new page on tap
-                  child: Center(
-                    child: Text(
-                      'Events', // Your heading text
-                      style: TextStyle(
-                        fontSize: 24, // Adjust the font size
-                        fontWeight: FontWeight.bold, // Make it bold
-                        color: Colors.white, // Change the color if needed
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Center(
-                  child:
-                      HorizontalScrollableStack(), // Replace with your widget
-                ),
-                SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () => _navigateToEventDetail(
-                      context), // Navigate to new page on tap
-                  child: Center(
-                    child: Text(
-                      'Events', // Your heading text
-                      style: TextStyle(
-                        fontSize: 24, // Adjust the font size
-                        fontWeight: FontWeight.bold, // Make it bold
-                        color: Colors.white, // Change the color if needed
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Center(
-                  child:
-                      HorizontalScrollableStack(), // Replace with your widget
-                ),
-              ],
-            ),
-          ),
-        ));
+      ),
+    );
   }
 }

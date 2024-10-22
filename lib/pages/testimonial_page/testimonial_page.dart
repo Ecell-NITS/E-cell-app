@@ -16,7 +16,12 @@ class _TestimonialPage extends State<TestimonialPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        appBarText: Text(
+          'Testimonial Page',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: CustomBackground(
         bodyWidget: Stack(
           children: [
