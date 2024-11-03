@@ -36,7 +36,7 @@ class ECellApp extends StatelessWidget {
           ResourcePage.routeName: (context) => const ResourcePage(),
           TeamsPage.routeName: (context) => const TeamsPage(),
           LoginPage.routeName: (context) => const LoginPage(),
-
+          SignUpPage.routeName: (context) => const SignUpPage(),
         },
         // initialRoute: CollabPage.routeName,
       ),
