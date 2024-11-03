@@ -1,4 +1,5 @@
 import 'package:ecell_app/configs/configs.dart';
+import 'package:ecell_app/pages/gallery_page/gallery_page.dart';
 import 'package:ecell_app/pages/splash_screen/splash_screen.dart';
 import 'package:ecell_app/pages/testimonial_page/testimonial_page.dart';
 
@@ -35,6 +36,7 @@ class ECellApp extends StatelessWidget {
           ProfilePage.routeName: (context) => const ProfilePage(),
           ResourcePage.routeName: (context) => const ResourcePage(),
           TeamsPage.routeName: (context) => const TeamsPage(),
+          GalleryPage.routeName: (context) => const GalleryPage(),
           LoginPage.routeName: (context) => const LoginPage(),
           SignUpPage.routeName: (context) => const SignUpPage(),
         },
