@@ -73,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           hintText: 'Name',
                           hintStyle: TextStyle(color: Colors.grey[400]),
                         ),
-                        enabled: isEditable, // Enable/disable based on state
+                        enabled: isEditable, 
                       ),
                     ),
                     const SizedBox(height: spacing),
