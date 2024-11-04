@@ -56,10 +56,7 @@ class _EventsPageState extends State<Eventspage> {
               SizedBox(height: 20),
 
               // Making the Scrollable Stack dynamic
-              Container(
-                width: MediaQuery.of(context).size.width, // Dynamically set the width
-                child: HorizontalScrollableStack(), // Your horizontal scrolling widget
-              ),
+              HorizontalScrollableStack(),
 
               SizedBox(height: 20),
 
@@ -80,11 +77,7 @@ class _EventsPageState extends State<Eventspage> {
 
               SizedBox(height: 20),
 
-              // Second dynamic Scrollable Stack
-              Container(
-                width: MediaQuery.of(context).size.width, // Dynamically set the width
-                child: HorizontalScrollableStack(),
-              ),
+              HorizontalScrollableStack(),
 
               SizedBox(height: 20),
             ],

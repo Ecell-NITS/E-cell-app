@@ -24,14 +24,14 @@ class ECellApp extends StatelessWidget {
         title: "E-Cell App",
         theme: darkTheme,
         debugShowCheckedModeBanner: false,
-        home: const TestimonialPage(),
+        // home: const TestimonialPage(),
         routes: {
           Eventspage.routeName: (context) => const Eventspage(),
           HomePage.routeName: (context) => const HomePage(),
           SplashScreen.routeName: (context) => const SplashScreen(),
           CollabPage.routeName: (context) => const CollabPage(),
-
-          EventRegistrationpage.routeName: (context) => const EventRegistrationpage(),
+          EventRegistrationpage.routeName: (context) =>
+              const EventRegistrationpage(),
           TestimonialPage.routeName: (context) => const TestimonialPage(),
           ProfilePage.routeName: (context) => const ProfilePage(),
           ResourcePage.routeName: (context) => const ResourcePage(),
@@ -40,7 +40,7 @@ class ECellApp extends StatelessWidget {
           LoginPage.routeName: (context) => const LoginPage(),
           SignUpPage.routeName: (context) => const SignUpPage(),
         },
-        // initialRoute: CollabPage.routeName,
+        initialRoute: SplashScreen.routeName,
       ),
     );
   }
