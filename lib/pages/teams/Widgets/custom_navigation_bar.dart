@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecell_app/configs/configurations/extensions/screen_utils.dart';
-import 'package:ecell_app/pages/teams_page/resources/Tabs.dart';
+import 'package:ecell_app/pages/teams/resources/Tabs.dart';
 
 class CustomNavBar extends StatefulWidget {
   final Function changetab;
@@ -72,9 +72,10 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return Stack(
+    children: [
       Container(
-        height: MediaQuery.sizeOf(context).height * 53 / 800,
+        height: 50,
         width: MediaQuery.sizeOf(context).width,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -95,56 +96,67 @@ class _CustomNavBarState extends State<CustomNavBar> {
               fontWeight: FontWeight.w800,
             ),
             unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w400),
-            tabs: List.generate(
-                tabsname.length,
-                (index) {
-                  if(index==2) {return Tab(
-                      child: Row(
-                        children: [
-                          Text("CORE TEAM  ",
-                            style: TextStyle(
-                              color: const Color.fromRGBO(22, 39, 64, 1),
-                              fontSize: ScreenUtil.defaultSize.width * 0.046,
-                              fontWeight: _selectedTabIndex == 2 ? FontWeight.w800 : FontWeight.w400,
-                            ),),
-                          DropdownButton<String>(
-                          onTap: (){
-                            widget.tabController.animateTo(2);
-                          },
-                          value: _dropdownValue,
-                          // Change text style based on whether this tab is selected or not
-                          dropdownColor: Colors.white,
-                          items: <String>['2024-25', '2023-24', '2022-23']
-                              .map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value,
-                                style: TextStyle(
-                                  color: const Color.fromRGBO(22, 39, 64, 1),
-                                  fontSize: ScreenUtil.defaultSize.width * 0.046,
-                                  fontWeight: _selectedTabIndex == 2 ? FontWeight.w800 : FontWeight.w400,
-                                ),),
-                            );
-                          }).toList(),
-                          onChanged: (newValue) {
-                            setState(() {
-                              _dropdownValue = newValue;
-                            });
-                          },
-                          underline: SizedBox(), // Removes the default underline
-                          icon: Icon(Icons.arrow_drop_down, color: Colors.black,size: 30,),
-                        ),]
-                      ));}
-
-                  return Tab(
-                    child: Text(
-                        tabsname[index],
-                        style: TextStyle(
-                            fontSize: ScreenUtil.defaultSize.width * 0.046,
-                            color: const Color.fromRGBO(22, 39, 64, 1)),
-                      ),
-                  );}
+            tabs: List.generate(tabsname.length, (index) {
+              if (index == 2) {
+                return Tab(
+                    child: Row(children: [
+                  Text(
+                    "CORE TEAM  ",
+                    style: TextStyle(
+                      color: const Color.fromRGBO(22, 39, 64, 1),
+                      fontSize: ScreenUtil.defaultSize.width * 0.046,
+                      fontWeight: _selectedTabIndex == 2
+                          ? FontWeight.w800
+                          : FontWeight.w400,
                     ),
+                  ),
+                  DropdownButton<String>(
+                    onTap: () {
+                      widget.tabController.animateTo(2);
+                    },
+                    value: _dropdownValue,
+                    // Change text style based on whether this tab is selected or not
+                    dropdownColor: Colors.white,
+                    items: <String>['2024-25', '2023-24', '2022-23']
+                        .map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: TextStyle(
+                            color: const Color.fromRGBO(22, 39, 64, 1),
+                            fontSize: ScreenUtil.defaultSize.width * 0.046,
+                            fontWeight: _selectedTabIndex == 2
+                                ? FontWeight.w800
+                                : FontWeight.w400,
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                    onChanged: (newValue) {
+                      setState(() {
+                        _dropdownValue = newValue;
+                      });
+                    },
+                    underline: SizedBox(), // Removes the default underline
+                    icon: Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                  ),
+                ]));
+              }
+
+              return Tab(
+                child: Text(
+                  tabsname[index],
+                  style: TextStyle(
+                      fontSize: ScreenUtil.defaultSize.width * 0.046,
+                      color: const Color.fromRGBO(22, 39, 64, 1)),
+                ),
+              );
+            }),
           ),
         ),
       ),
@@ -153,7 +165,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         right: rightarrow,
         child: Container(
             width: 35,
-            height: MediaQuery.sizeOf(context).height * 53 / 800,
+            height: 50,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),
@@ -176,7 +188,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         left: leftarrow,
         child: Container(
             width: 35,
-            height: MediaQuery.sizeOf(context).height * 53 / 800,
+            height: 50,
             decoration: const BoxDecoration(
               color: Colors.white,
             ),

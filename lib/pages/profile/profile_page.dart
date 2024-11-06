@@ -34,7 +34,9 @@ class _ProfilePageState extends State<ProfilePage> {
     const double bottomTextHeight = 20.0;
 
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        appBarText: Text('data'),
+      ),
       body: Center(
         child: Stack(
           clipBehavior: Clip.none,

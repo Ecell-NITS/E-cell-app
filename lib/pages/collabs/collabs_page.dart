@@ -9,7 +9,9 @@ class CollabPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        appBarText: Text("data"),
+      ),
     );
   }
 }
