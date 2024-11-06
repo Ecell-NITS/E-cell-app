@@ -10,6 +10,20 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController yearController = TextEditingController();
+  final TextEditingController positionController = TextEditingController();
+
+  bool isEditable = false; 
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    yearController.dispose();
+    positionController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
@@ -42,6 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
+                        controller: nameController,
                         style: const TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           filled: true,
@@ -60,12 +75,14 @@ class _ProfilePageState extends State<ProfilePage> {
                           hintText: 'Name',
                           hintStyle: TextStyle(color: Colors.grey[400]),
                         ),
+                        enabled: isEditable, 
                       ),
                     ),
                     const SizedBox(height: spacing),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
+                        controller: yearController,
                         style: const TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           filled: true,
@@ -84,12 +101,14 @@ class _ProfilePageState extends State<ProfilePage> {
                           hintText: 'Year',
                           hintStyle: TextStyle(color: Colors.grey[400]),
                         ),
+                        enabled: isEditable, 
                       ),
                     ),
                     const SizedBox(height: spacing),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
+                        controller: positionController,
                         style: const TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           filled: true,
@@ -108,19 +127,32 @@ class _ProfilePageState extends State<ProfilePage> {
                           hintText: 'Position',
                           hintStyle: TextStyle(color: Colors.grey[400]),
                         ),
+                        enabled: isEditable, 
                       ),
                     ),
                     const SizedBox(height: bottomTextHeight),
                     Container(
                       alignment: Alignment.bottomRight,
                       padding: const EdgeInsets.only(right: 20.0),
-                      child: const Text(
-                        'EDIT DETAILS',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (isEditable) {
+                              print("Name: ${nameController.text}");
+                              print("Year: ${yearController.text}");
+                              print("Position: ${positionController.text}");
+                            }
+                            isEditable = !isEditable; 
+                          });
+                        },
+                        child: Text(
+                          isEditable ? 'SAVE' : 'EDIT DETAILS', 
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -193,7 +225,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 }
 
-// Custom clipper for semicircles
 class SemicircleClipper extends CustomClipper<Path> {
   final bool top;
 
@@ -203,7 +234,6 @@ class SemicircleClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path();
     if (top) {
-      // Create a top semicircle
       path.moveTo(0, size.height);
       path.arcToPoint(
         Offset(size.width, size.height),
@@ -213,7 +243,6 @@ class SemicircleClipper extends CustomClipper<Path> {
       path.lineTo(size.width, size.height);
       path.lineTo(0, size.height);
     } else {
-      // Create a bottom semicircle
       path.moveTo(0, 0);
       path.arcToPoint(
         Offset(size.width, 0),
